@@ -1,5 +1,5 @@
 #Connect Four by Masha Vainblat
-(http://mashavainblat.github.io/WDI-Meeseeks-Remote)
+http://mashavainblat.github.io/WDI-Meeseeks-Remote
 
 
 Connect four is a two player game. If a player gets four pieces in a row before his/her opponent, that player wins.
