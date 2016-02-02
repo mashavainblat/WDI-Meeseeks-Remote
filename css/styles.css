@@ -1,0 +1,149 @@
+ blue #00d2ff*/
+
+@font-face {
+    font-family: 'Abril';
+    src: url('../fonts/Abril_Fatface/AbrilFatface-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'TheLeague';
+    src: url('../fonts/theLeague/LeagueGothic-Regular.otf');
+}
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body, header{
+	text-align:center;
+}
+
+body{
+	background-color:#C0B3A8;
+	/*border:solid 5px white;*/
+	box-sizing:border-box;
+	/*margin:3%;*/
+	padding:3%;
+	max-height:100%;
+}
+
+h1{
+	font-family: 'Dosis', sans-serif;
+	color:white;
+	font-weight:400;
+	font-size:9vmin;
+	margin-bottom:.2em;
+}
+
+button{
+	font-family: 'Dosis', sans-serif;
+	background-color:#D3C9C1;
+	border:solid 1px white;
+	padding:1% 7% 2%;
+	margin-bottom:1.4em;
+	color:#fff;
+}
+
+/*div.playerInfoContainer{
+	width:50%;
+	display:block;
+	float:left;
+}*/
+
+section{
+	width:100%;
+
+}
+
+.gameBoardColumn{
+	display:inline-block;
+	background-color:#C0B3A8;
+	width:13%;
+}
+
+.topRowButton{
+	width:100%;
+	background-color:#fff;
+	opacity: .3;
+	border-radius:50%;
+	border:solid 1px white;
+	box-sizing:border-box;
+}
+
+.topRowButton:hover{
+	background-color:#7598B0;
+	border:none;
+}
+
+span{
+	margin:2%;
+	border-radius:50%;
+	border:solid 1px white;
+	box-sizing:border-box;
+}
+
+
+
+.gameSpace{
+	display:block;
+	height:12vmin;
+	/*background-color:blue;*/
+}
+
+
+
+.played{
+	background-color:#59c3d8;
+}
+
+.player1{
+	background-color:#7F7500;
+}
+
+.player2{
+	background-color:#483856;
+}
+
+
+
+
+
+
+
+
+
+/******************************************/
+/****************** >676px ****************/
+/******************************************/
+
+@media screen and (min-width:600px){
+	body{
+		margin:0 auto;
+		text-align:center;
+		padding:0px 4%;
+	}
+
+	.gameSpace{
+		height:9vmax;
+		width::9vmin;;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
