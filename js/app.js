@@ -76,7 +76,7 @@ $(function(){
 		
 		
 		function celebrate(){
-			alert("WINNER")
+			alert("WINNER is " + players[currentPlayerIndex]);
 		}
 
 		//check if theres a winner
@@ -87,8 +87,9 @@ $(function(){
 		console.log("X/ROW: " + x + " Y/COLUMN: " + y );
 	
 		//re state players by class because objects have increased after switchPlayer()
-		$player1 = $(".player1");
-		$player2 = $(".player2");
+		// $player1 = $(".player1");
+		// $player2 = $(".player2");
+		$player = $("." + players[currentPlayerIndex]);
 
 		//
 		//console.log($player1.length);
@@ -97,9 +98,9 @@ $(function(){
 		//console.log($player1);
 
 		//object acts as array so i can get amount of objects using length
-		for (var i = 0; i < $player1.length; i++){
-			var $currentX = $player1.eq(i).data("x");
-			var $currentY = $player1.eq(i).data("y");
+		for (var i = 0; i < $player.length; i++){
+			var $currentX = $player.eq(i).data("x");
+			var $currentY = $player.eq(i).data("y");
 
 			console.log("currentX = " + $currentX + "\tcurrentY=" + $currentY + "\trow=" + row + "\tcol=" + col);
 			console.log($currentY);
@@ -112,14 +113,15 @@ $(function(){
 			// 	winner!
 			// }
 
-			if ( isHorizontalWinner() || isVerticalWinner()){
+			if ( isHorizontalWinner() || isVerticalWinner() || isDiagonalWinner() ){
 				return true			
 			} else return false;
 				
 			
 
 			function hasPiece(x, y){
-				if($(".player1[data-x='" + x + "'][data-y='" + y + "'] ").length == 1){
+				
+				if($("." + players[currentPlayerIndex] + "[data-x='" + x + "'][data-y='" + y + "'] ").length == 1){
 					console.log("Player 1 has piece at (" + x +"," + y + ")")
 					return true;
 				} else {
@@ -143,6 +145,8 @@ $(function(){
 					 	)
 					) 
 				{
+
+					console.log("Horizontal winner. Y=" + y);
 					return true;
 				}
 				else return false;
@@ -163,6 +167,7 @@ $(function(){
 					 	)
 					) 
 				{
+					console.log("Vertical winner");	
 					return true;
 				}
 				else return false;
@@ -175,29 +180,60 @@ $(function(){
 							hasPiece(x-2, y-2) &&
 						 	hasPiece(x-3, y-3) 
 						 )
-						 ||
-						 (
-						 	hasPiece(x+1, y+1) &&
-						 	hasPiece(x+2, y+2) &&
-						 	hasPiece(x+3, y+3)
-					 	)
-						 ||
-						(
-							hasPiece(x-1, y+1) &&
-							hasPiece(x-2, y+2) &&
-						 	hasPiece(x-3, y+3) 
-						 )
-						 ||
-						 (
-						 	hasPiece(x+1, y-1) &&
-						 	hasPiece(x+2, y-2) &&
-						 	hasPiece(x+3, y-3)
-					 	)
-					) 
-				{
-					return true;
-				}
-				else return false;
+					)	
+					{
+						console.log("the player is " + players[currentPlayerIndex] + ". Case 1");
+						return true;
+					} //ends if statement
+
+				else if(
+
+							(
+								hasPiece(x+1, y+1) &&
+							 	hasPiece(x+2, y+2) &&
+							 	hasPiece(x+3, y+3)
+							)
+						
+						)
+					{
+						console.log("the player is " + players[currentPlayerIndex] + ". Case 1");
+						return true;
+					} //ends else if
+
+				else if(
+
+							(
+								hasPiece(x-1, y+1) &&
+								hasPiece(x-2, y+2) &&
+							 	hasPiece(x-3, y+3) 
+							)
+						
+						)
+					{
+						console.log("the player is " + players[currentPlayerIndex] + ". Case 1");
+						return true;
+					} //ends else if
+
+				else if(
+
+							(
+								hasPiece(x+1, y-1) &&
+							 	hasPiece(x+2, y-2) &&
+							 	hasPiece(x+3, y-3)
+							)
+						
+						)
+					{
+						console.log("the player is " + players[currentPlayerIndex] + ". Case 1");
+						return true;
+					} //ends else if
+
+				else {	
+
+						return false;
+					}
+				
+				
 			}// ends isDiagonalWinner()
 
 		} //ends for loop
